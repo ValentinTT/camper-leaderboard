@@ -1,0 +1,130 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "leader-board" "footer";
+}
+
+header, footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header {
+  grid-area: header;
+  padding: 20px;
+  background: #49CEFF;
+}
+
+header h1 {
+  text-align: center;
+  margin: 0;
+  color: #fff;
+}
+
+footer {
+  grid-area: footer;
+  padding: 20px;
+  background: #49CEFF;
+}
+
+footer h4 {
+  text-align: center;
+  margin: 0;
+  color: #fff;
+}
+
+.link:hover, .link:focus {
+  outline: none;
+  color: #9b4dca;
+}
+
+.link:active {
+  outline: none;
+  color: #606c76;
+}
+
+.leader-board {
+  grid-area: "leader-board";
+  display: grid;
+  grid-template-columns: 10% 1fr 10%;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". table .";
+  background: #24252D;
+}
+
+.leader-board table {
+  grid-area: table;
+  margin: 0 20px;
+  background: #fff;
+}
+
+.leader-board table td,
+.leader-board table th {
+  padding: 5px 15px;
+}
+
+.leader-board table thead tr {
+  background: #d1d1d1;
+}
+
+.leader-board table tbody tr:nth-child(even) {
+  background: #d1d1d1;
+}
+
+.leader-board table .camper {
+  /*camper-username should be a div inside a td, not a td
+			otherwise the table lost its format
+			*/
+}
+
+.leader-board table .camper .camper-username {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.leader-board table .camper .camper-username .camper-img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.leader-board table .camper .camper-username .username-link {
+  margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+  .leader-board {
+    grid-area: "leader-board";
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "table";
+  }
+}
+/*# sourceMappingURL=App.css.map */

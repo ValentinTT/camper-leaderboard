@@ -2,19 +2,20 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ADD_CAMPERS, REMOVE_CAMPERS, 
-    CHANGE_FILTER, BY_LAST_30_DAYS, BY_TOTAL } from './Actions';
+    CHANGE_FILTER, BY_LAST_30_DAYS} from './Actions';
 
-const campers = (state = {}, action) => {
+const campers = (state = [], action) => {
     switch(action.type) {
         case ADD_CAMPERS:
             return action.campers;
         case REMOVE_CAMPERS: 
+            return [];
         default:
-            return {};
+            return state;
     }
 }
 
-const sortCampersFilter = (state = BY_LAST_30_DAYS, action) => {
+const campersSort = (state = BY_LAST_30_DAYS, action) => {
     switch(action.type) {
         case CHANGE_FILTER:
             return action.filter;
@@ -25,8 +26,8 @@ const sortCampersFilter = (state = BY_LAST_30_DAYS, action) => {
 
 const LeaderBoardApp = combineReducers({
     campers,
-    sortCampersFilter
-});
+    campersSort,
+})
 
 const loggerMiddleware = createLogger(); 
 
